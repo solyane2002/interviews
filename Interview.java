@@ -3,7 +3,7 @@ package interviews;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Interview implements IInterview {
+class Interview {
     // #region members
     protected int id;
     protected String name;
@@ -13,29 +13,29 @@ public class Interview implements IInterview {
     // #endregion
 
     // #region getters
-    public int getId() {
+    protected int getId() {
         return id;
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
-    public String getDescription() {
+    protected String getDescription() {
         return description;
     }
 
-    public int getDuration() {
+    protected int getDuration() {
         return duration;
     }
 
-    public Set<Question> getQuestions() {
+    protected Set<Question> getQuestions() {
         return questions;
     }
     // #endregion
 
     // #region contructors
-    public Interview(int id, String name, String desc, int duration) {
+    protected Interview(int id, String name, String desc, int duration) {
         this.id = id;
         this.name = name;
         this.description = desc;
@@ -50,9 +50,9 @@ public class Interview implements IInterview {
     }
     // #endregion
 
-    // #region IInterview implementation
+    // #region methods
 
-    public void AddQuestions(Set<Question> questions, boolean force) throws DurationExcedeedException {
+    protected void addQuestions(Set<Question> questions, boolean force) throws DurationExcedeedException {
         if (questions == null) {
             return;
         }
@@ -73,4 +73,5 @@ public class Interview implements IInterview {
                         + ") exceeds the interview duration (" + this.duration + ")");
         }
     }
+    //#endregion
 }

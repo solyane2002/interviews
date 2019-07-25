@@ -1,11 +1,21 @@
 # Project Interviews
 
-The API Interviews exposes the following features:
+The API Interviews exposes the following features through the interface:
+
+```
+IInterviewAPI
+```
 
 - search for questions according to optional parameters: candidate experience, language, question duration
 - add new questions to the catalog
 - create an Interview
 - add questions to the Interview, with an optional check of the total duration
+
+To get the default implementation of this interface, use:
+
+```
+InterviewAPIFactory.get()
+```
 
 ### Prerequisites
 
@@ -32,21 +42,22 @@ Run unit tests:
 Should get the result output : 
 
 ```
-*** Questions ***
-*** running test : AddQuestionShouldSucceed ***
+*** InterviewAPITests ***
+*** running test: AddQuestionShouldSucceed ***
 success
-*** running test : SearchQuestionWithEmptyParamShouldReturnTheWholeList ***
+*** running test: searchQuestionWithEmptyParamShouldReturnTheWholeList ***
 success
-*** running test : SearchQuestionForJuniorShouldReturn2Items ***
+*** running test: searchQuestionForJuniorShouldReturn2Items ***
 success
-*** running test : SearchQuestionInJavaDuring5MinutsShouldReturn1Item ***
+*** running test: searchQuestionInJavaDuring5MinutsShouldReturn1Item ***
 success
-*** Interviews ***
-*** running test : SetQuestionsShouldThrowAnException ***
+*** running test : addTooLongQuestionsShouldThrowAnException ***
 success
-*** running test : AddTooLongQuestionsShouldThrowAnException ***
+*** running test : addTooLongQuestionsWithForceShouldSucceed ***
 success
-*** running test : AddQuestionsTwiceShouldSucceed ***
+*** running test : addQuestionsTwiceShouldSucceed ***
+success
+*** running test : addQuestionWithInvalidIndexShouldThrowAnException ***
 success
 all tests succeeded
 ```
